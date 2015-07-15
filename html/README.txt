@@ -67,3 +67,10 @@ Credits:
 		html5shiv.js (@afarkas @jdalton @jon_neal @rem)
 		Respond.js (j.mp/respondjs)
 		Skel (skel.io)
+
+		
+home page
+vet profile search page
+vet profile page
+and the ability for a user to 'ask a question' 
+it will display all questions users ask on one page we can call the 'wall'

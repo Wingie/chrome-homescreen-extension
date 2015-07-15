@@ -1021,8 +1021,10 @@
 	}
 
 	#header p {
+		display: inline-flex;
 		font-size: 1.35em;
 		line-height: 1.65em;
+		padding: 22px;
 	}
 
 	#header a {
@@ -1191,3 +1193,20 @@
 			}
 
 		}
+
+#summary_test{
+	padding-top: 30px; 
+	max-width: 40%;
+}
+
+.bluer{
+	background:#2233C3 !important;
+}
+.greenr{
+	background:#ED1A36 !important;
+}
+
+.greenr:hover {
+	color: #88C7C4 !important;
+
+}

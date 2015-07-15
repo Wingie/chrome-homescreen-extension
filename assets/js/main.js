@@ -25,88 +25,94 @@
 	// Disable animations/transitions until everything's loaded.
 		$body.classList.add('is-loading');
 
-		window.addEventListener('load', function() {
-			window.setTimeout(function() {
-				$body.classList.remove('is-loading');
-			}, 100);
-		});
+	window.addEventListener('load', function() {
 
-	// Slideshow Background.
-		(function() {
+			$.ajax({
+					url: 'http://wingztv.com/public_api/random/',
+					type: 'get',
+					dataType: 'json',
+					success: function (data) {
 
-				
-			// Settings.
-				var settings = {
+						window.d = data['result'];
+						$body.classList.remove('is-loading');
+					
 
-					// Images (in the format of 'url': 'alignment').
-						data: [
-							{'title1':'abcd','title2':'3232323','img':'https://i.ytimg.com/vi/s3Vini-9bqU/hqdefault.jpg','summary':'dsdsdsddsds'},
-							{'title1':'efgh','title2':'434343434','img':'https://i.ytimg.com/vi/E8iwsnMbcfc/hqdefault.jpg','summary':'dsdsdsddsds'},
-							{'title1':'ijkl','title2':'5454454','img':'https://i.ytimg.com/vi/-K5sPXXzo4A/hqdefault.jpg','summary':'dsdsdsddsds'},
-						],
+						// Slideshow Background.
+							(function() {
 
-					// Delay.
-						delay: 6000
+									
+								// Settings.
+									var settings = {
 
-				};
+										// Images (in the format of 'url': 'alignment').
+											data: window.d,
 
-			// Vars.ds
-				var	pos = 0, lastPos = 0,
-					$wrapper, $bgs = [], $bg,
-					k, v;
+										// Delay.
+											delay: 10000
 
-			// Create BG wrapper, BGs.
-				$wrapper = document.createElement('div');
-					$wrapper.id = 'bg';
-					$body.appendChild($wrapper);
+									};
 
-				for (k in settings.data) {
-					// Create BG.	
-						$bg = document.createElement('div');
-							$bg.style.backgroundImage = 'url("' + settings.data[k]['img'] + '")';
-							$bg.style.backgroundPosition = 'center';
-							$wrapper.appendChild($bg);
+								// Vars.ds
+									var	pos = 0, lastPos = 0,
+										$wrapper, $bgs = [], $bg,
+										k, v;
 
-					// Add it to array.
-						$bgs.push($bg);
+								// Create BG wrapper, BGs.
+									$wrapper = document.createElement('div');
+										$wrapper.id = 'bg';
+										$body.appendChild($wrapper);
+										
+									for (k in settings.data) {
+										console.log(settings.data[k])
+										// Create BG.	
+											$bg = document.createElement('div');
+												$bg.style.backgroundImage = 'url("' + settings.data[k]['news_url'] + '")';
+												$bg.style.backgroundPosition = 'center';
+												$wrapper.appendChild($bg);
 
-				}
+										// Add it to array.
+											$bgs.push($bg);
 
-			// Main loop.
-				$bgs[pos].classList.add('visible');
-				$bgs[pos].classList.add('top');
+									}
 
-				var template = _.template($( "#texttemplate" ).html());
-				$('#header').html(template(settings.data[pos]))
-				// Bail if we only have a single BG or the client doesn't support transitions.
-					if ($bgs.length == 1
-					||	!canUse('transition'))
-						return;
+								// Main loop.
+									$bgs[pos].classList.add('visible');
+									$bgs[pos].classList.add('top');
 
-				window.setInterval(function() {
+									var template = _.template($( "#texttemplate" ).html());
+									$('#header').html(template(settings.data[pos]))
+									// Bail if we only have a single BG or the client doesn't support transitions.
+										if ($bgs.length == 1
+										||	!canUse('transition'))
+											return;
 
-					lastPos = pos;
-					pos++;
+									window.setInterval(function() {
 
-					// Wrap to beginning if necessary.
-						if (pos >= $bgs.length)
-							pos = 0;
+										lastPos = pos;
+										pos++;
 
-					// Swap top images.
-						$bgs[lastPos].classList.remove('top');
-						$bgs[pos].classList.add('visible');
-						$bgs[pos].classList.add('top');
-					// change text
-						$('#header').html(template(settings.data[pos]))
-						
-					// Hide last image after a short delay.
-						window.setTimeout(function() {
-							$bgs[lastPos].classList.remove('visible');
-						}, settings.delay / 2);
+										// Wrap to beginning if necessary.
+											if (pos >= $bgs.length)
+												pos = 0;
 
-				}, settings.delay);
+										// Swap top images.
+											$bgs[lastPos].classList.remove('top');
+											$bgs[pos].classList.add('visible');
+											$bgs[pos].classList.add('top');
+										// change text
+											$('#header').html(template(settings.data[pos]))
+											
+										// Hide last image after a short delay.
+											window.setTimeout(function() {
+												$bgs[lastPos].classList.remove('visible');
+											}, settings.delay / 2);
 
-		})();
+									}, settings.delay);
 
+							})();
+
+					}
+			});
+	});
 
 })();
