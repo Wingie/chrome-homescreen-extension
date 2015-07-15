@@ -16,6 +16,7 @@
 		<script type="text/javascript" src="../js/jquery-2.1.4.min.js"></script>	
 		<script type="text/javascript" src="../js/jstorage.js"></script>
 		<script type="text/javascript" src="../js/underscore-min.js "></script>
+		<script type="text/javascript" src="../js/moment.js "></script>
 	</head>
 	<body>
 
@@ -25,10 +26,12 @@
 			</header>
 	
 		<script type="text/template" id="texttemplate">
+			<span class="button b_date"><%=disp_date%></span>
 		    <h1 id="title"><%=video_title%></h1>
 		    <h4 id="title2"><%=news_title%></h4>
 		    <p ><a class="button bluer" href="<%=source_url%>">Read Article @ <%=source_domain%></a></p>
-		    <p ><a class="button greenr" href="<%=video_url%>">Watch Video</a></p>
+		    <p ><a class="button greenr" href="http://wingztv.com/video/<%=slug%>/">Watch Video</a></p>
+
 		</script>
 
 		

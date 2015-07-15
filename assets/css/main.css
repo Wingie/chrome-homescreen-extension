@@ -1024,7 +1024,7 @@
 		display: inline-flex;
 		font-size: 1.35em;
 		line-height: 1.65em;
-		padding: 22px;
+		padding-right: 22px;
 	}
 
 	#header a {
@@ -1209,4 +1209,11 @@
 .greenr:hover {
 	color: #88C7C4 !important;
 
+}
+
+.b_date{
+   position: absolute;
+   top: -54px;
+   margin-left: 0px;
+   background:rgba(103, 125, 109, 0.38) !important;
 }

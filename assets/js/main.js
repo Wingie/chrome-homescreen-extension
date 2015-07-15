@@ -34,6 +34,7 @@
 					success: function (data) {
 
 						window.d = data['result'];
+
 						$body.classList.remove('is-loading');
 					
 
@@ -48,7 +49,7 @@
 											data: window.d,
 
 										// Delay.
-											delay: 10000
+											delay: 6000
 
 									};
 
@@ -63,7 +64,8 @@
 										$body.appendChild($wrapper);
 										
 									for (k in settings.data) {
-										console.log(settings.data[k])
+										settings.data[k]['disp_date'] = moment(settings.data[k]['published_dateobj']).format("MMM Do YYYY")
+										
 										// Create BG.	
 											$bg = document.createElement('div');
 												$bg.style.backgroundImage = 'url("' + settings.data[k]['news_url'] + '")';
