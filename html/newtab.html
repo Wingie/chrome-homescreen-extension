@@ -1,60 +1,38 @@
+<!DOCTYPE HTML>
+<!--
+	Eventually by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
 <html>
-<head>
-	<title>My Homescreen</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<link rel="stylesheet" href="../css/layout.css" type="text/css" media="screen" /> 
-	<script type="text/javascript" src="../js/jquery-1.4.2.min.js"></script>
-	<script type="text/javascript" src="../js/newtab.min.js"></script>
-</head>
-<body onload="javascript:init();">
+	<head>
+		<title>Eventually by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<script type="text/javascript" src="../js/jquery-2.1.4.min.js"></script>	
+		<script type="text/javascript" src="../js/jstorage.js"></script>
+		<script type="text/javascript" src="../js/underscore-min.js "></script>
+	</head>
+	<body>
 
-
-	<a href="http://www.micha.elmueller.net/" title="my homescreen">
-		<img src="../images/top.png" alt="Icon" class="topIcon" />
-	</a>
-	
-	
-	<table class="mainContainer" align="center">
-	<tr>
-		<td>
-		    <div id="recentlyClosedTabs" class="box">
-				<h1>Lately closed</h1>
-			
-				<div class="beforeNavi">
-					<ul id="recentlyClosedTabsList"></ul>
-				</div>
-			
-				<div id="naviContainer">
-					<a href="javascript:displayRecentlyClosedTabs(currentTabsPage+1);"><img src="../images/arrows/active/right.png" alt="next" id="tabs_next_active" /></a>
-					<img src="../images/arrows/inactive/right.png" alt="next" id="tabs_next_inactive" />
-					<img src="../images/arrows/inactive/left.png" alt="previous" id="tabs_previous_inactive" />
-					<a href="javascript:displayRecentlyClosedTabs(currentTabsPage-1);"><img src="../images/arrows/active/left.png" alt="previous" id="tabs_previous_active" /></a>
-				</div>
-			</div> 
-		</td>
-		<td>
-	
-			<div class="favsContainer box">
-				<h1>Favorites</h1>
-			
-				<div class="beforeNavi">			
-					<table id="favTable"></table>
-				</div>
-		
-				<div id="naviContainer">
-					<a href="javascript:displayFavs(currentFavsPage+1);"><img src="../images/arrows/active/right.png" alt="next" id="favs_next_active" /></a>
-					<img src="../images/arrows/inactive/right.png" alt="next" id="favs_next_inactive" />
-					<img src="../images/arrows/inactive/left.png" alt="previous" id="favs_previous_inactive" />
-					<a href="javascript:displayFavs(currentFavsPage-1);"><img src="../images/arrows/active/left.png" alt="previous" id="favs_previous_active" /></a>
-				</div>
+		<!-- Header -->
+			<header id="header">
 				
-			</div>
-		</td>
-	</tr>
-	</table>
+			</header>
 	
-</body>
+		<script type="text/template" id="texttemplate">
+		    <h1 id="title"><%=title1%></h1>
+		    <h4 id="title2"><%=title2%></h4>
+		</script>
+
+		
+		<!-- Scripts -->
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="../assets/js/main.js"></script>
+			
+	</body>
 </html>
-
-
-
